@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ハタチの頑張るお店</title>
+</head>
+<body>
+  <h1>ハタチの頑張るお店</h1>
+
+  <div>
+    <button style="width : 200px;height : 60px; font-size: 20px" onclick="addItem('焼きそば', 500)">焼きそば ¥500</button>
+    <button style="width : 200px;height : 60px; font-size: 20px" onclick="addItem('焼きうどん', 500)">焼きうどん ¥500</button>
+    <button style="width : 200px;height : 60px; font-size: 20px" onclick="addItem('焼きそばパン', 400)">焼きそばパン ¥400</button>
+  </div>
+
+  <div class="cart">
+    <h2 style= font-size:30px>カート</h2>
+    <ul id="cart-list"></ul>
+    <p style= font-size:20px>合計: ¥<span id="total">0</span>
+        <button style= font-size:20px onclick="cancel()">取り消し</button></p>
+    <p><label style= font-size:20px>現金: <input style= font-size:20px type="number" id="cash" value="0" step="100" onchange="updateChange()" /></label>
+        <button style="font-size:20px; margin-left: 10px; margin-right:10px" onclick="m500()">¥500</button>
+        <button style=" font-size:20px; margin-right: 10px;" onclick="m1000()">¥1000</button>
+        <button style=" font-size:20px; margin-right: 10px;" onclick="m5000()">¥5000</button>
+        <button style=" font-size:20px; margin-right: 40px;" onclick="m10000()">¥10000</button>
+    <button style=" font-size:20px;" onclick="paypay()">paypay・ちょうど</button>
+    </p>
+    <p style= font-size:20px>お釣り: ¥<span id="change">0</span></p>
+    <button style= font-size:20px onclick="checkout()">会計する</button>
+  </div>
+
+  <div class="tab">
+    <button onclick="toggleChecklist()">▶ チェックリストを表示 / 非表示</button>
+  </div>
+
+  <div class="checklist" id="checklist" style="display:none">
+    <h2>受け渡しチェックリスト</h2>
+    <table id="order-table" style="font-size: 20px;">
+      <thead>
+        <tr><th>注文番号</th><th>商品</th><th>合計</th><th>現金</th><th>お釣り</th><th>時間</th><th>渡した？</th></tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+  </div>
+
+  <script src="main.js"></script>
+</body>
+</html>
